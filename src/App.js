@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+
+import React from 'react';
 import './App.css';
+import ModalRoot from './modules/modals/components/ModalRoot';
+import ModalService from './modules/modals/services/ModalService';
+import TestModal from './components/TestModal';
 
 function App() {
+
+  const addModal = () => {
+    ModalService.open(TestModal);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ModalRoot />
+      <button onClick={ addModal } className="btn btn-primary m-4">Open modal</button>
     </div>
   );
 }
